@@ -4,7 +4,11 @@ const PORT = process.env.PORT || 5000
 const puppeteer = require("puppeteer");
 
 const app = express();
-app.post('/generatepdf', async (req, res)  => {
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+app.post('/generatepdf', async function (req, res, next){
+ 
   var htmlContent= req.body.html;
   const browser = await puppeteer.launch({
     headless: true,
