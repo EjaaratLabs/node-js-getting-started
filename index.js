@@ -1,4 +1,5 @@
 const express = require('express')
+require('events').EventEmitter.prototype._maxListeners = 25;
 const path = require('path')
 const PORT = process.env.PORT || 5000
 const puppeteer = require("puppeteer");
@@ -26,7 +27,7 @@ await page.setContent(htmlContent);
 
 const buffer = await page.pdf({ format: "A4", margin:{top:"1.75cm",bottom:"1.5cm"}});
 const base64 = buffer.toString('base64');
-  res.send({
+res.send({
     data:base64
   });
 });
