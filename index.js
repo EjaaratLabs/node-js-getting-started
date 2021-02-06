@@ -27,6 +27,7 @@ await page.setContent(htmlContent);
 
 const buffer = await page.pdf({ format: "A4", margin:{top:"1.75cm",bottom:"1.5cm"}});
 const base64 = buffer.toString('base64');
+browser.close()
 res.send({
     data:base64
   });
