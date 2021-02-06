@@ -17,6 +17,7 @@ app.get('/', async (req, res)  => {
   </body>
   </html>
   `
+  
   const browser = await puppeteer.launch({
     headless: true,
     defaultViewport: null,
