@@ -18,8 +18,7 @@ app.get('/', async (req, res)  => {
   </html>
   `
   const browser = await puppeteer.launch({
-    args: [
-      
+    args: [ 
       '--no-sandbox',
       '--disable-setuid-sandbox',
     ],
